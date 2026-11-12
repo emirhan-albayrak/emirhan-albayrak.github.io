@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Emirhan B. Albayrak — Systems Neuroscience, Rutgers University–Newark</title>
+<meta name="description" content="Emirhan B. Albayrak, PhD candidate studying how the primate brain evaluates options and how attention shapes valuation, in the orbitofrontal cortex." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Emirhan B. Albayrak" />
+<meta property="og:description" content="Neuroscience of decision-making: primate OFC, single-neuron recordings, causal perturbation, and network models." />
+<meta property="og:url" content="https://emirhan-albayrak.github.io/" />
+<meta property="og:image" content="https://emirhan-albayrak.github.io/assets/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='7' y='2' width='2' height='12' fill='%23e05a5f'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  /* =========================================================
+     EDIT COLORS HERE — change a hex value and the site follows.
+     --bg is the light-orange background; --accent is the coral highlight.
+     ========================================================= */
+  :root {
+    --bg:      #fdf1e3;   /* light orange background */
+    --soft:    #ffffff;   /* alternating sections + cards (pop against orange) */
+    --ink:     #1b1c1e;   /* main text */
+    --muted:   #6b7280;   /* secondary text, dates */
+    --accent:  #e05a5f;   /* coral highlight — links, dates, buttons */
+    --accent-d:#c8474c;   /* darker coral for hover */
+    --line:    #ece1d3;   /* quiet hairlines — card / button / avatar borders */
+    --rule:    #e05a5f;   /* red structural separators — nav underline + section frames */
+    --rule-soft:#f0c9c7;  /* soft red tint — repeated list separators */
+    --header-bg:#6e2d30;  /* dark maroon header bar */
+    --header-fg:#f5e7d8;  /* warm cream text on the header */
+    --maxw: 880px;
+    --font: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    --font-head: "IBM Plex Serif", Georgia, serif;   /* headings */
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-d); text-decoration: underline; text-underline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  section, .bio { scroll-margin-top: 72px; }   /* so anchor jumps clear the sticky nav */
+
+  /* nav */
+  header.nav { position: sticky; top: 0; z-index: 20; background: var(--header-bg); border-bottom: 1px solid var(--rule); }
+  .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-weight: 600; color: var(--header-fg); font-size: 15.5px; }
+  .brand:hover { color: #fff; text-decoration: none; }
+  .nav-links { display: flex; gap: 22px; }
+  .nav-links a { color: var(--header-fg); font-size: 14px; font-weight: 500; }
+  .nav-links a:hover { color: #fff; text-decoration: none; }
+  @media (max-width: 560px) { .nav-links { gap: 15px; } .brand { display: none; } .nav-inner { justify-content: center; } }
+
+  /* hero */
+  .hero { text-align: center; padding: 52px 0 10px; }
+  .avatar-box { width: 148px; margin: 0 auto 20px; }
+  .avatar-box img { width: 148px; height: 148px; object-fit: cover; border-radius: 50%; border: 1px solid var(--line); display: block; }
+  .avatar-ph { display: none; width: 148px; height: 148px; border-radius: 50%; border: 1px dashed #d8c3a8; background: repeating-linear-gradient(135deg,#f7ead9 0 8px,#fdf1e3 8px 16px); align-items: center; justify-content: center; text-align: center; font-size: 11px; color: #a58a68; }
+  h1 { font-family: var(--font-head); font-size: 30px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .role { font-size: 17px; font-weight: 600; color: var(--ink); margin: 0 0 3px; }
+  .affil { font-size: 15px; color: var(--muted); margin: 0 0 16px; }
+  .socials { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 16px; }
+  .socials a { font-size: 13px; font-weight: 500; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 7px 13px; background: var(--soft); }
+  .socials a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .socials a.cv { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .socials a.cv:hover { background: var(--accent-d); border-color: var(--accent-d); color: #fff; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; }
+  .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px rgba(224,90,95,0.18); }
+
+  /* bio */
+  .bio { padding: 24px 0 8px; }
+  .bio p { margin: 0 0 14px; max-width: 70ch; }
+  .bio p:last-child { margin-bottom: 0; }
+
+  /* sections */
+  section { padding: 40px 0; }
+  section.alt { background: var(--soft); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  h2 { font-family: var(--font-head); font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 24px; }
+
+  /* research */
+  /* research runs wider than the rest of the page: figure sits further left, text gets more room */
+  #research .wrap { max-width: 1100px; }
+  /* keep the section heading on the same left edge as the other sections */
+  #research .wrap > h2 { max-width: 832px; margin-left: auto; margin-right: auto; }
+  /* click a figure to see it full size */
+  .thumb img { cursor: zoom-in; }
+  #lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(27,28,30,0.88); display: none; align-items: center; justify-content: center; padding: 28px; cursor: zoom-out; }
+  #lightbox.on { display: flex; }
+  #lightbox img { max-width: 96vw; max-height: 94vh; border-radius: 8px; background: #fff; }
+  .proj { display: grid; grid-template-columns: 1fr 1.2fr; gap: 36px; padding: 28px 0; border-top: 1px solid var(--rule-soft); align-items: start; }
+  .proj:first-of-type { border-top: none; padding-top: 0; }
+  /* figure sits beside the text, using a near-half column */
+  @media (max-width: 700px) { .proj { grid-template-columns: 1fr; gap: 14px; } }
+  .thumb { margin: 0; }
+  .thumb img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; display: block; background: #fff; }
+  .thumb figcaption { margin-top: 9px; font-size: 13px; line-height: 1.5; color: var(--muted); }
+  .thumb-ph { display: none; aspect-ratio: 4/3; border: 1px dashed #d8c3a8; border-radius: 10px; background: repeating-linear-gradient(90deg,#f7ead9 0 1px,transparent 1px 30px),repeating-linear-gradient(0deg,#f7ead9 0 1px,transparent 1px 30px),#fffdfa; align-items: center; justify-content: center; text-align: center; padding: 10px; font-size: 12px; color: #a58a68; }
+  .proj h3 { font-family: var(--font-head); font-size: 17px; font-weight: 600; margin: 0 0 7px; }
+  .proj p { margin: 0 0 10px; font-size: 15.5px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 11.5px; color: var(--muted); border: 1px solid var(--line); border-radius: 5px; padding: 2px 8px; background: var(--soft); }
+  .tag.prep { color: var(--accent); border-color: #f2ced0; }
+
+  /* education timeline */
+  .tl { position: relative; padding-left: 26px; }
+  .tl::before { content: ""; position: absolute; left: 6px; top: 4px; bottom: 4px; width: 2px; background: var(--rule-soft); }
+  .tl-item { position: relative; padding: 0 0 22px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before { content: ""; position: absolute; left: -26px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+  .tl-item.current::before { background: var(--accent); }  /* filled dot = current */
+  .tl-date { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 2px; }
+  .tl-title { font-weight: 600; }
+  .tl-sub { color: var(--muted); font-size: 15px; }
+
+  /* publications */
+  .pub { padding: 14px 0; border-top: 1px solid var(--rule-soft); }
+  .pub:first-of-type { border-top: none; padding-top: 0; }
+  .pub .t { font-weight: 600; }
+  .pub .a { color: var(--muted); font-size: 14.5px; }
+  .flag { display: inline-block; font-size: 11px; color: var(--accent); border: 1px solid #f2ced0; border-radius: 4px; padding: 1px 6px; margin-left: 4px; vertical-align: 1px; }
+  .note { color: var(--muted); font-size: 14px; margin-top: 14px; }
+
+  /* talks */
+  .talk { display: grid; grid-template-columns: 66px 1fr; gap: 14px; padding: 9px 0; border-top: 1px solid var(--rule-soft); font-size: 15.5px; }
+  .talk:first-of-type { border-top: none; }
+  .talk .y { color: var(--accent); font-weight: 600; font-size: 14px; }
+  .subhead { font-family: var(--font-head); font-size: 12.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+  .subhead + .talk { border-top: none; }
+  #talks .subhead ~ .subhead { margin-top: 26px; }
+
+  footer { padding: 30px 0 54px; text-align: center; }
+  footer p { color: var(--muted); font-size: 13px; margin: 0; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">Emirhan B. Albayrak</a>
+    <nav class="nav-links">
+      <a href="#top">Home</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#talks">Talks</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<div class="wrap">
+  <!-- ===== HERO ===== -->
+  <div class="hero">
+        <div class="avatar-box">
+      <img src="assets/photo.jpg" alt="Emirhan B. Albayrak" />
+      <div class="avatar-ph">add<br>photo.jpg</div>
+    </div>
+    <h1>Emirhan B. Albayrak</h1>
+    <p class="role">PhD Candidate in Neuroscience</p>
+    <p class="affil">McGinty Lab, Center for Molecular and Behavioral Neuroscience, Rutgers University–Newark</p>
+    <p class="affil">emirhan.albayrak@rutgers.edu</p>
+
+    <div class="socials">
+      <a class="cv" href="assets/CV-Emirhan-Albayrak.pdf">CV</a>
+      <a href="https://github.com/emirhan-albayrak">GitHub</a>
+      <a href="https://orcid.org/0000-0002-6216-5877">ORCID</a>
+      <a href="https://www.linkedin.com/in/emirhan-b-albayrak/">LinkedIn</a>
+      <!-- <a href="https://x.com/emirhana85">Twitter</a> -->
+      <a href="mailto:emirhan.albayrak@rutgers.edu">Email</a>
+    </div>
+    <span class="pill"><span class="dot"></span> Seeking a postdoc - starting Fall 2027</span>
+  </div>
+
+  <!-- ===== ABOUT / BIO ===== -->
+  <div class="bio" id="about">
+        <p>I am a systems neuroscientist studying how the brain evaluates options and turns that into choice. To choose between two things, you have to know what each is worth, and where it is located. My work is on how the orbitofrontal cortex (OFC) carries both kinds of information, and whether the location signals are incidental to valuation or something choice actually depends on.</p>
+    <p>I am a PhD candidate in <a href="https://www.mcgintylab.org/">Vincent McGinty's lab</a> at Rutgers University&#8211;Newark, with three primary ongoing projects. The first tests the causal role of OFC's location signals, using closed-loop electrical stimulation triggered in real time on the animal's gaze. The second asks how location, value, and choice information is represented across physiologically distinct cell types in OFC. The third concerns gaze. In free-gaze paradigms, animals tend to choose the option they have looked at longer. I ask whether this gaze bias emerges from the sampling process, by training recurrent neural networks that perform the same task as the animals, under free gaze.</p>
+    <p>My core skill set includes non-human primate training, behavioral rig development, single-unit recording, closed-loop stimulation with eye tracking, and analysis and modeling in MATLAB, Python, and PyTorch.</p>
+    <p>I started out in economics. Three years in, I wanted to know what a brain was doing to produce the choices those models described, so I left for psychology and later did a master's in biomedical engineering, all at Boğaziçi University.</p>
+    <p>Subjective value or preference is not a physical property of an option; it is constructed in real time from multiple attributes that are not directly comparable, including but not limited to taste, cost, effort, gain and risk. I am interested in how frontal circuits solve this comparison problem, at the level of implementation: what the circuitry is, which cell types carry which component, how the population moves through a decision, and what fails when one stream of information is perturbed. Those questions led my work towards putative cell types, causal perturbation of value and location signals, and network models that may dissociate candidate mechanisms. That is what I want to build on in a postdoc starting in Fall 2027, in a setting where circuit-level measurement and modeling run in parallel.</p>
+
+  </div>
+</div>
+
+<!-- ===== RESEARCH (now above Education) ===== -->
+<section class="alt" id="research">
+  <div class="wrap">
+    <h2>Research</h2>
+
+    <div class="proj">
+      <figure class="thumb">
+        <img src="assets/fig-1.png" alt="Percentage of OFC neurons encoding gaze location and value over time, with the two stimulation windows marked" />
+        <div class="thumb-ph">fig-1.png</div>
+        <figcaption>Location and value signals peak at different times after gaze first lands on a target. Stimulation delivered in the early (red) or late (blue) window biases choice in opposite directions.</figcaption>
+      </figure>
+      <div>
+        <h3>Causal perturbation of value and location signals</h3>
+        <p>Does the OFC's representation of where a target is located contribute to choosing it? During economic decisions, OFC neurons encode both the value and the location of decision targets. The role of value signals is well characterized. The role of location signals is not: they may just reflect where the animal is looking rather than contribute to the choice itself.</p>
+        <p>The two signals peak at different times after gaze lands on a target, and I exploit that offset to test the causal role of each. Using closed-loop electrical stimulation in OFC, triggered in real time on the animal's gaze, I stimulate in an early window, when the location signal is near its peak and the value signal is still weak, and in a later window, when the reverse holds. Stimulating in the two windows biases choice in opposite directions.</p>
+      </div>
+    </div>
+
+    <div class="proj">
+      <figure class="thumb">
+        <img src="assets/fig-2.png" alt="UMAP projection of OFC neurons separated into five physiological clusters by spike waveform and interspike interval, with mean waveform and ISI curve shown per cluster" />
+        <div class="thumb-ph">fig-2.png</div>
+        <figcaption>Unsupervised clustering of 1,376 OFC neurons by spike waveforms and interspike intervals (ISIs) splits them into five physiologically distinct clusters (UMAP projection; mean waveform and ISI distribution shown per cluster).</figcaption>
+      </figure>
+      <div>
+        <h3>Physiological cell types and what they encode</h3>
+        <p>Does OFC divide the work of a decision across different cell types? Cortical computation depends on physiologically distinct cell types with different roles in the local circuit, but in primate work these cell types are usually pooled, and neurons are treated as interchangeable members of one population. Using unsupervised clustering on spike waveforms and interspike intervals, I identify clusters of OFC neurons with distinct physiologies and ask how location, value, and choice information is distributed across them.</p>
+        <p>One putative inhibitory cluster (cluster 1) stands out: it carries location information early and strongly, and its trial-to-trial activity predicts the upcoming choice. Such choice-predictive activity is absent from OFC neurons at the single-cell level when the population is treated as homogeneous (McGinty &amp; Lupkin, 2023).</p>
+
+      </div>
+    </div>
+
+    <div class="proj">
+      <figure class="thumb">
+        <img src="assets/fig-3.png" alt="Diagram of the agent: one recurrent network whose hidden state feeds a gaze head, a decision head and a tabular baseline, acting in an environment that returns observations and reward, trained by REINFORCE" />
+        <div class="thumb-ph">fig-3.png</div>
+        <figcaption>Model architecture: one recurrent network of 256 units, obeying Dale's law, which sees only the currently fixated item and eye position. Its hidden state drives a gaze head, which looks left or right at every step, and a decision head, which commits to an option or keeps sampling. Trained primarily by REINFORCE on a version of the task the animals perform, against a tabular baseline of mean reward per offer-value pair, with reward as the only objective.</figcaption>
+      </figure>
+      <div>
+        <h3>Network models of gaze and choice</h3>
+        <p>When people (and animals) choose between options, they sample them with their eyes before deciding. How they sample predicts what they pick: the option looked at longer, or fixated last before the decision, is the one more likely to be chosen. Many network models of decision-making ignore this sampling process: the model receives information about both options at once, so there is no gaze to modulate the choice.</p>
+        <p>I am building a model that generates its own sampling: a single recurrent network read out by separate gaze and decision heads. The gaze head chooses where to look next, and the decision head either commits to one of the options or keeps sampling, so the choice unfolds over a sequence of fixations the model generates for itself.</p>
+        <p>The first goal is to see whether gaze-related choice biases emerge from this architecture without being built into it, and if so, what mechanisms produce them. The second is to reproduce the effects of stimulating at either value- or location-encoding epochs in the model, where the state of the network at the moment of perturbation is fully observable, a way of generating candidate mechanisms for the stimulation effects that can then be tested in the animal.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section>
+  <div class="wrap">
+    <h2>Education</h2>
+    <div class="tl">
+      <div class="tl-item current">
+        <div class="tl-date">2022 – Present</div>
+        <div class="tl-title">PhD Candidate in Neuroscience, Rutgers University–Newark</div>
+        <div class="tl-sub">with Vincent McGinty</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2022</div>
+        <div class="tl-title">M.S. in Biomedical Engineering, Boğaziçi University</div>
+        <div class="tl-sub">with Daniela Schulz</div>
+        <div class="tl-sub">TÜBİTAK 2210-A National Graduate Scholarship</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2019</div>
+        <div class="tl-title">B.A. in Psychology, Boğaziçi University</div>
+      </div>
+      <div class="tl-item">
+                <div class="tl-date">2013 – 2017</div>
+        <div class="tl-title">Undergraduate coursework in Economics, Boğaziçi University</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PUBLICATIONS ===== -->
+<section class="alt" id="publications">
+  <div class="wrap">
+    <h2>Publications</h2>
+    <div class="pub">
+      <div class="t">Physiological cell types in orbitofrontal cortex exhibit distinct encoding of location, value and choice <span class="flag">manuscript · in prep</span></div>
+      <div class="a">Albayrak E., Lupkin S., McGinty V.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TALKS ===== -->
+<section id="talks">
+  <div class="wrap">
+    <h2>Selected talks &amp; posters</h2>
+
+    <h3 class="subhead">Talks</h3>
+    <div class="talk"><span class="y">2026</span><span>Distinct value &amp; choice information across putative OFC subtypes. <em>34th Annual CMBN Mini-Symposium</em>. Rutgers University&#8211;Newark.</span></div>
+    <div class="talk"><span class="y">2026</span><span>Mechanisms of attention and valuation in the primate orbitofrontal cortex in economic decision-making. <em>Kennerley and Grabenhorst labs</em>. University of Oxford.</span></div>
+
+    <h3 class="subhead">Posters</h3>
+    <div class="talk"><span class="y">2026</span><span>Physiological cell types in orbitofrontal cortex exhibit distinct encoding of location, value and choice. <em>Gordon Research Conference, Neurobiology of Cognition</em>. Waterville Valley, NH.</span></div>
+    <div class="talk"><span class="y">2025</span><span>Distinct value &amp; choice information across putative subtypes of primate orbitofrontal neurons. <em>Society for Neuroscience</em>. San Diego, CA.</span></div>
+    <div class="talk"><span class="y">2025</span><span>Distinct value &amp; choice information across putative subtypes of primate orbitofrontal neurons. <em>Cognitive Computational Neuroscience</em>. Amsterdam.</span></div>
+    <div class="talk"><span class="y">2024</span><span>Selective disruption of target value and target location signals in primate orbitofrontal cortex: Effects on binary choice. <em>Fifth Quadrennial Meeting on OFC Function</em>. Paris.</span></div>
+    <div class="talk"><span class="y">2024</span><span>Selective disruption of target value and target location signals in primate orbitofrontal cortex: Effects on binary choice. <em>Simian Collective Meeting</em>. Pittsburgh, PA.</span></div>
+    <div class="talk"><span class="y">2023</span><span>Selective disruption of target value and target location signals in primate orbitofrontal cortex: Effects on binary choice. <em>Society for Neuroscience</em>. Washington, DC.</span></div>
+    <p class="note">Full list on the <a href="assets/CV-Emirhan-Albayrak.pdf">CV</a>.</p>
+  </div>
+</section>
+
+<footer><p>Center for Molecular and Behavioral Neuroscience · Rutgers University–Newark · <a href="mailto:emirhan.albayrak@rutgers.edu">emirhan.albayrak@rutgers.edu</a></p></footer>
+
+
+
+
+
+
+<script>
+// Figures open full size on click; Esc or a second click closes.
+(function () {
+  var box = document.createElement("div");
+  box.id = "lightbox";
+  box.setAttribute("role", "dialog");
+  box.setAttribute("aria-modal", "true");
+  var big = document.createElement("img");
+  box.appendChild(big);
+  document.body.appendChild(box);
+
+  function open(img) { big.src = img.currentSrc || img.src; big.alt = img.alt; box.classList.add("on"); }
+  function close() { box.classList.remove("on"); big.removeAttribute("src"); }
+
+  document.querySelectorAll(".thumb img").forEach(function (img) {
+    img.tabIndex = 0;
+    img.addEventListener("click", function () { open(img); });
+    img.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(img); }
+    });
+  });
+  box.addEventListener("click", close);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+})();
+</script>
+
+</body>
+</html>
