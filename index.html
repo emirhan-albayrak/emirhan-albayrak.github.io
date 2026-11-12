@@ -19,10 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;600;700&display=swap" rel="stylesheet" />
 
 <style>
-  /* =========================================================
-     EDIT COLORS HERE — change a hex value and the site follows.
-     --bg is the light-orange background; --accent is the coral highlight.
-     ========================================================= */
+  /* Color tokens: change a hex value here and the whole page follows. */
   :root {
     --bg:      #fdf1e3;   /* light orange background */
     --soft:    #ffffff;   /* alternating sections + cards (pop against orange) */
@@ -63,7 +60,6 @@
   .hero { text-align: center; padding: 52px 0 10px; }
   .avatar-box { width: 148px; margin: 0 auto 20px; }
   .avatar-box img { width: 148px; height: 148px; object-fit: cover; border-radius: 50%; border: 1px solid var(--line); display: block; }
-  .avatar-ph { display: none; width: 148px; height: 148px; border-radius: 50%; border: 1px dashed #d8c3a8; background: repeating-linear-gradient(135deg,#f7ead9 0 8px,#fdf1e3 8px 16px); align-items: center; justify-content: center; text-align: center; font-size: 11px; color: #a58a68; }
   h1 { font-family: var(--font-head); font-size: 30px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 6px; }
   .role { font-size: 17px; font-weight: 600; color: var(--ink); margin: 0 0 3px; }
   .affil { font-size: 15px; color: var(--muted); margin: 0 0 16px; }
@@ -102,12 +98,8 @@
   .thumb { margin: 0; }
   .thumb img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; display: block; background: #fff; }
   .thumb figcaption { margin-top: 9px; font-size: 13px; line-height: 1.5; color: var(--muted); }
-  .thumb-ph { display: none; aspect-ratio: 4/3; border: 1px dashed #d8c3a8; border-radius: 10px; background: repeating-linear-gradient(90deg,#f7ead9 0 1px,transparent 1px 30px),repeating-linear-gradient(0deg,#f7ead9 0 1px,transparent 1px 30px),#fffdfa; align-items: center; justify-content: center; text-align: center; padding: 10px; font-size: 12px; color: #a58a68; }
   .proj h3 { font-family: var(--font-head); font-size: 17px; font-weight: 600; margin: 0 0 7px; }
   .proj p { margin: 0 0 10px; font-size: 15.5px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag { font-size: 11.5px; color: var(--muted); border: 1px solid var(--line); border-radius: 5px; padding: 2px 8px; background: var(--soft); }
-  .tag.prep { color: var(--accent); border-color: #f2ced0; }
 
   /* education timeline */
   .tl { position: relative; padding-left: 26px; }
@@ -160,7 +152,6 @@
   <div class="hero">
         <div class="avatar-box">
       <img src="assets/photo.jpg" alt="Emirhan B. Albayrak" />
-      <div class="avatar-ph">add<br>photo.jpg</div>
     </div>
     <h1>Emirhan B. Albayrak</h1>
     <p class="role">PhD Candidate in Neuroscience</p>
@@ -172,7 +163,7 @@
       <a href="https://github.com/emirhan-albayrak">GitHub</a>
       <a href="https://orcid.org/0000-0002-6216-5877">ORCID</a>
       <a href="https://www.linkedin.com/in/emirhan-b-albayrak/">LinkedIn</a>
-      <!-- <a href="https://x.com/emirhana85">Twitter</a> -->
+      <!-- X/LinkedIn-style extra links go here if wanted -->
       <a href="mailto:emirhan.albayrak@rutgers.edu">Email</a>
     </div>
     <span class="pill"><span class="dot"></span> Seeking a postdoc - starting Fall 2027</span>
@@ -189,7 +180,7 @@
   </div>
 </div>
 
-<!-- ===== RESEARCH (now above Education) ===== -->
+<!-- ===== RESEARCH ===== -->
 <section class="alt" id="research">
   <div class="wrap">
     <h2>Research</h2>
@@ -197,7 +188,6 @@
     <div class="proj">
       <figure class="thumb">
         <img src="assets/fig-1.png" alt="Percentage of OFC neurons encoding gaze location and value over time, with the two stimulation windows marked" />
-        <div class="thumb-ph">fig-1.png</div>
         <figcaption>Location and value signals peak at different times after gaze first lands on a target. Stimulation delivered in the early (red) or late (blue) window biases choice in opposite directions.</figcaption>
       </figure>
       <div>
@@ -210,7 +200,6 @@
     <div class="proj">
       <figure class="thumb">
         <img src="assets/fig-2.png" alt="UMAP projection of OFC neurons separated into five physiological clusters by spike waveform and interspike interval, with mean waveform and ISI curve shown per cluster" />
-        <div class="thumb-ph">fig-2.png</div>
         <figcaption>Unsupervised clustering of 1,376 OFC neurons by spike waveforms and interspike intervals (ISIs) splits them into five physiologically distinct clusters (UMAP projection; mean waveform and ISI distribution shown per cluster).</figcaption>
       </figure>
       <div>
@@ -224,7 +213,6 @@
     <div class="proj">
       <figure class="thumb">
         <img src="assets/fig-3.png" alt="Diagram of the agent: one recurrent network whose hidden state feeds a gaze head, a decision head and a tabular baseline, acting in an environment that returns observations and reward, trained by REINFORCE" />
-        <div class="thumb-ph">fig-3.png</div>
         <figcaption>Model architecture: one recurrent network of 256 units, obeying Dale's law, which sees only the currently fixated item and eye position. Its hidden state drives a gaze head, which looks left or right at every step, and a decision head, which commits to an option or keeps sampling. Trained primarily by REINFORCE on a version of the task the animals perform, against a tabular baseline of mean reward per offer-value pair, with reward as the only objective.</figcaption>
       </figure>
       <div>
@@ -298,10 +286,6 @@
 </section>
 
 <footer><p>Center for Molecular and Behavioral Neuroscience · Rutgers University–Newark · <a href="mailto:emirhan.albayrak@rutgers.edu">emirhan.albayrak@rutgers.edu</a></p></footer>
-
-
-
-
 
 
 <script>
